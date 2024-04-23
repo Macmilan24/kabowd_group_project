@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student enrollment system</title>
+    <style>
+      .rotate-45 {
+        --transform-rotate: 45deg;
+        transform: rotate(45deg);
+      }
+
+      .group:hover .group-hover\:flex {
+        display: flex;
+      }
+    </style>
+
+    <link rel="stylesheet" href="style/style.css" />
+  </head>
+  <body>
+    <!-- partial:index.partial.html -->
+    <div class="flex w-screen h-screen text-gray-700">
+      <!-- Component Start -->
+      <div
+        class="flex flex-col items-center w-1/12 pb-4 overflow-auto border-r border-gray-300 bg-white"
+      >
+        <a
+          class="flex items-center justify-center flex-shrink-0 w-full h-16 bg-gray-300"
+          href="#"
+        >
+        </a>
+        <a
+          class="btn-student flex items-center justify-evenly w-2/3 flex-shrink-0 h-10 mt-4 rounded hover:bg-gray-300"
+          href="#"
+        >
+          <svg
+            class="w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+            />
+          </svg>
+          <p>Student</p>
+        </a>
+        <a
+          class="btn-course flex items-center justify-evenly w-2/3 flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-300"
+          href="#"
+        >
+          <svg
+            class="w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+            />
+          </svg>
+          <p>course</p>
+        </a>
+        <a
+          class="btn-instructor flex items-center justify-evenly w-2/3 flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-300"
+          href="#"
+        >
+          <svg
+            class="w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"
+            />
+          </svg>
+          <p>instructor</p>
+        </a>
+        <a
+          class="btn-enroll flex items-center justify-evenly w-2/3 flex-shrink-0 w-10 h-10 mt-4 rounded hover:bg-gray-300"
+          href="#"
+        >
+          <svg
+            class="w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+            />
+          </svg>
+          <p>Enroll</p>
+        </a>
+        <a
+          class="flex items-center justify-center flex-shrink-0 w-10 h-10 mt-4 mt-auto rounded hover:bg-gray-300"
+          href="#"
+        >
+          <svg
+            class="w-5 h-5"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
+          </svg>
+        </a>
+      </div>
+      <!-- student div -->
+
+      <div id="stud_div" class="flex hidden">
+        <div class="flex flex-col w-56 border-r border-gray-300">
+          <div
+            class="flex flex-col flex-grow p-4 pt-16 content-center overflow-auto"
+          >
+            <button
+              class="stu-add bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Add Student
+            </button>
+            <button
+              class="stu-view bg-green-500 hover:bg-green-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              View Student
+            </button>
+            <button
+              class="stu-edit bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Edit Student
+            </button>
+            <button
+              class="stu-delete bg-red-500 hover:bg-red-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Delete Student
+            </button>
+          </div>
+        </div>
+        <div class="stu-form flex flex-col flex-grow content-center bg-white">
+          <!-- add form -->
+          <form
+            method="POST"
+            action="http://localhost:5000/student/add"
+            class="w-full mt-16 mx-16 hidden"
+            id="add-form"
+          >
+            <div class="flex flex-wrap mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  First Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="grid-first-name"
+                  name="fname"
+                  type="text"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Last Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-last-name"
+                  name="lname"
+                  type="text"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Email
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  name="email"
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-city"
+                >
+                  Phone No
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-city"
+                  name="pno"
+                  type="text"
+                  placeholder="+251"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Add"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- view table -->
+
+          <div id="viewTable" class="mt-16 ml-16 hidden">
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th class="px-4 py-2">Student Id</th>
+                  <th class="px-4 py-2">First Name</th>
+                  <th class="px-4 py-2">Last Name</th>
+                  <th class="px-4 py-2">Email</th>
+                  <th class="px-4 py-2">Phone number</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <td class="border px-4 py-2">Intro to CSS</td>
+                <td class="border px-4 py-2">Adam</td>
+                <td class="border px-4 py-2">858</td>
+                <td class="border px-4 py-2">858</td>
+                <td class="border px-4 py-2">858</td>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- edit form -->
+
+          <form class="w-full mt-16 mx-16" id="edit-form">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Student Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="estuID"
+                type="text"
+                placeholder="Id"
+              />
+            </div>
+            <div class="flex flex-wrap mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  First Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="efname"
+                  type="text"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Last Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="elname"
+                  type="text"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Email
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="eemail"
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-city"
+                >
+                  Phone No
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="epno"
+                  type="text"
+                  placeholder="+251"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Edit"
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- delete form -->
+
+          <form class="w-full mt-16 mx-16 hidden" id="delete-form">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Student Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="deletestu"
+                type="text"
+                placeholder="Id"
+              />
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Delete"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- course div -->
+
+      <div id="course_div" class="flex hidden">
+        <div class="flex flex-col w-56 border-r border-gray-300">
+          <div
+            class="flex flex-col flex-grow p-4 pt-16 content-center overflow-auto"
+          >
+            <button
+              class="cor-add bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Add Course
+            </button>
+            <button
+              class="cor-view bg-green-500 hover:bg-green-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              View course
+            </button>
+            <button
+              class="cor-edit bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Edit course
+            </button>
+            <button
+              class="cor-delete bg-red-500 hover:bg-red-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Delete course
+            </button>
+          </div>
+        </div>
+        <div class="stu-form flex flex-col flex-grow content-center bg-white">
+          <!-- add form -->
+          <form
+            method="POST"
+            action="http://localhost:5000/course/add"
+            class="w-full mt-16 mx-16 hidden"
+            id="C_add-form"
+          >
+            <div class="flex flex-wrap mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Course Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="grid-first-name"
+                  name="cname"
+                  type="text"
+                  placeholder="Course Name"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Credit Hour
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-last-name"
+                  name="chr"
+                  type="number"
+                  placeholder="Credit Hour"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Course Description
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  name="cdes"
+                  type="text"
+                  placeholder="Course Description"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Add"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- view table -->
+
+          <div id="C_viewTable" class="mt-16 ml-16 hidden">
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th class="px-4 py-2">Course ID</th>
+                  <th class="px-4 py-2">Course Name</th>
+                  <th class="px-4 py-2">Credit Hour</th>
+                  <th class="px-4 py-2">Course Description</th>
+                </tr>
+              </thead>
+              <tbody id="C_tableBody"></tbody>
+            </table>
+          </div>
+
+          <!-- edit form -->
+
+          <form class="w-full mt-16 mx-16" id="C_edit-form">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Course Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="ecorID"
+                type="text"
+                placeholder="Id"
+              />
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Course Name
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="grid-first-name"
+                name="e_cname"
+                type="text"
+                placeholder="Course Name"
+              />
+            </div>
+            <div class="w-full md:w-1/2 px-3">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-last-name"
+              >
+                Credit Hour
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                name="e_chr"
+                type="number"
+                placeholder="Credit Hour"
+              />
+            </div>
+            <div class="flex flex-wrap mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Course Description
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  name="e_cdes"
+                  type="text"
+                  placeholder="Course Description"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Edit"
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- delete form -->
+
+          <form class="w-full mt-16 mx-16 hidden" id="C_delete-form">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                course Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="deletecor"
+                type="text"
+                placeholder="Id"
+              />
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Delete"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Instractor div -->
+
+      <div id="inst_div" class="flex hidden">
+        <div class="flex flex-col w-56 border-r border-gray-300">
+          <div
+            class="flex flex-col flex-grow p-4 pt-16 content-center overflow-auto"
+          >
+            <button
+              class="ins-add bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Add Instructor
+            </button>
+            <button
+              class="ins-view bg-green-500 hover:bg-green-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              View Instructor
+            </button>
+            <button
+              class="ins-edit bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Edit Instructor
+            </button>
+            <button
+              class="ins-delete bg-red-500 hover:bg-red-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Delete Instructor
+            </button>
+
+            <button
+              class="ins-grade bg-red-500 hover:bg-red-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Submit Grade
+            </button>
+          </div>
+        </div>
+        <div class="stu-form flex flex-col flex-grow content-center bg-white">
+          <!-- add form -->
+          <form
+            method="POST"
+            action="http://localhost:5000/instructor/add"
+            class="w-full mt-16 mx-16 hidden"
+            id="I_add-form"
+          >
+            <div class="flex flex-wrap mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  First Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="grid-first-name"
+                  name="I_fname"
+                  type="text"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Last Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-last-name"
+                  name="I_lname"
+                  type="text"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Email
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  name="I_email"
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-city"
+                >
+                  Department
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-city"
+                  name="I_dep"
+                  type="text"
+                  placeholder="+251"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Add"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- view table -->
+
+          <div id="I_viewTable" class="mt-16 ml-16 hidden">
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th class="px-4 py-2">Instructor Id</th>
+                  <th class="px-4 py-2">First Name</th>
+                  <th class="px-4 py-2">Last Name</th>
+                  <th class="px-4 py-2">Email</th>
+                  <th class="px-4 py-2">Department</th>
+                </tr>
+              </thead>
+              <tbody id="I_tableBody"></tbody>
+            </table>
+          </div>
+
+          <!-- edit form -->
+
+          <form class="w-full mt-16 mx-16" id="I_edit-form">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Instructor Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="einsID"
+                type="text"
+                placeholder="Id"
+              />
+            </div>
+            <div class="flex flex-wrap mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  First Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="e_insfname"
+                  type="text"
+                  placeholder="First Name"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Last Name
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="e_inslname"
+                  type="text"
+                  placeholder="Last Name"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Email
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="e_insemail"
+                  type="email"
+                  placeholder="Email"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <div class="w-full md:w-1/3 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-city"
+                >
+                  Department
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="edep"
+                  type="text"
+                  placeholder="Department"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Edit"
+                class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- delete form -->
+
+          <form class="w-full mt-16 mx-16 hidden" id="I_delete-form">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Instructor Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="deleteins"
+                type="text"
+                placeholder="Id"
+              />
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Delete"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- submit Grade -->
+          <form class="w-full mt-16 mx-16 hidden" id="I_grade-form">
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Student Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="I_stuId"
+                type="number"
+                placeholder="Id"
+              />
+            </div>
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Course Id
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="I_courseId"
+                type="number"
+                placeholder="Id"
+              />
+            </div>
+
+            <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+              <label
+                class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                for="grid-first-name"
+              >
+                Grade
+              </label>
+              <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                id="I_Grade"
+                type="text"
+                placeholder="Id"
+              />
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Submit Grade"
+                class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Enrollment div -->
+      <div id="enroll_div" class="flex">
+        <div class="flex flex-col w-56 border-r border-gray-300">
+          <div
+            class="flex flex-col flex-grow p-4 pt-16 content-center overflow-auto"
+          >
+            <button
+              class="enroll-add bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              Enroll
+            </button>
+            <button
+              class="enroll-view bg-green-500 hover:bg-green-700 text-white font-bold py-2 w-4/6 rounded mb-4"
+            >
+              View Enrolled Student
+            </button>
+          </div>
+        </div>
+        <div class="stu-form flex flex-col flex-grow content-center bg-white">
+          <!-- add form -->
+          <form
+            method="POST"
+            action="http://localhost:5000/enroll/add"
+            class="w-full mt-16 mx-16"
+            id="E_add-form"
+          >
+            <div class="flex flex-wrap mb-6">
+              <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-first-name"
+                >
+                  Course ID
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+                  id="grid-first-name"
+                  name="E_corId"
+                  type="text"
+                  placeholder="Course ID"
+                />
+              </div>
+              <div class="w-full md:w-1/2 px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-last-name"
+                >
+                  Student ID
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-last-name"
+                  name="E_stuId"
+                  type="text"
+                  placeholder="Student ID"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-6">
+              <div class="w-full px-3">
+                <label
+                  class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
+                  for="grid-password"
+                >
+                  Enrollment Date
+                </label>
+                <input
+                  class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-password"
+                  name="E_date"
+                  type="date"
+                  placeholder="DATE"
+                />
+              </div>
+            </div>
+            <div class="flex flex-wrap mx-3 mb-2">
+              <input
+                type="submit"
+                value="Add"
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-3 rounded mx-3 mt-4"
+              />
+            </div>
+          </form>
+
+          <!-- view table -->
+
+          <div id="E_viewTable" class="mt-16 ml-16 hidden">
+            <table class="table-auto">
+              <thead>
+                <tr>
+                  <th class="px-4 py-2">Enrollment Id</th>
+                  <th class="px-4 py-2">First Name</th>
+                  <th class="px-4 py-2">Last Name</th>
+                  <th class="px-4 py-2">Course Name</th>
+                  <th class="px-4 py-2">Grade</th>
+                  <th class="px-4 py-2">Enrollment Date</th>
+                </tr>
+              </thead>
+              <tbody id="E_tableBody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- Component End  -->
+    </div>
+    <!-- partial -->
+
+    <script src="jquery.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
