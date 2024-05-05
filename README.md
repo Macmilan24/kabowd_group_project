@@ -1,6 +1,6 @@
 ## Student Enrollment System ##
 
-**This is a simple Project  to Practice CRUD using express and Mysql database*
+**This is a simple Project  to Practice CRUD using express and Mysql database**
 
  In this project project we can create, read, update and delete the data from the database 
 
